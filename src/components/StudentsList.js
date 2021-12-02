@@ -1,7 +1,7 @@
 import React from "react";
 
-function AllStudents() {
+function StudentsList() {
   return <div>List of all students</div>;
 }
 
-export default AllStudents;
+export default StudentsList;

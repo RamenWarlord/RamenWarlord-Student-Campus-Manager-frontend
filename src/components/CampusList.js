@@ -1,7 +1,7 @@
 import React from "react";
 
-function AllCampus() {
+function CampusList() {
   return <div>View of all campuses</div>;
 }
 
-export default AllCampus;
+export default CampusList;
