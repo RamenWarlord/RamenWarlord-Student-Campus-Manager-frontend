@@ -1,36 +1,45 @@
 import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 
 function NewStudentContainer(props) {
-  const [firstname, setfname] = useState("");
-  const [lastname, setlname] = useState("");
-  const [campusId, setcid] = useState(null);
-  const [redirect, isRedirect] = useState(false);
-  const [redirectId, setrid] = useState(null);
+  const [state, setState] = useState({
+    firstname: "",
+    lastname: "",
+    campusId: null,
+    redirect: false,
+    redirectId: null,
+  });
 
-  //returning functions as a cleanup/ component will unmount
+  //returning functions in useEffect acts as a cleanup/ component will unmount
   useEffect(() => {
     return function cleanup() {
-      isRedirect(false);
-      setrid(null);
+      setState({ ...state, redirect: false, redirectId: null });
     };
   });
+
+  const handleChange = (e) => {};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     let student = {
-      firstname: firstname,
-      lastname: lastname,
-      campusId: campusId,
+      firstname: state.firstname,
+      lastname: state.lastname,
+      campusId: state.campusId,
     };
     let newStudent = await props.addStudent(student);
-    setfname("");
-    setlname("");
-    setcid(null);
-    isRedirect(true);
-    setrid(newStudent.id);
+    setState({
+      firstname: "",
+      lastname: "",
+      campusId: null,
+      redirect: true,
+      redirectId: newStudent.id,
+    });
   };
 
-  return <div></div>;
+  if (redirectId) {
+    return <Redirect to={`/student/${redirectId}`} />;
+  }
+  return <NewStudentView handleSubmit={handleSubmit} />;
 }
 
 export default NewStudentContainer;
