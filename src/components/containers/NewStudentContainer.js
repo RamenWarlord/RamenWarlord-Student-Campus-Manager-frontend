@@ -17,7 +17,12 @@ function NewStudentContainer(props) {
     };
   });
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,7 +44,9 @@ function NewStudentContainer(props) {
   if (redirectId) {
     return <Redirect to={`/student/${redirectId}`} />;
   }
-  return <NewStudentView handleSubmit={handleSubmit} />;
+  return (
+    <NewStudentView handleChange={handleChange} handleSubmit={handleSubmit} />
+  );
 }
 
 export default NewStudentContainer;
