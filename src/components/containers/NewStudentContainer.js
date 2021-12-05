@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
+import { addStudentThunk } from "../../state/thunks";
 
 function NewStudentContainer(props) {
   const [state, setState] = useState({
@@ -49,4 +50,10 @@ function NewStudentContainer(props) {
   );
 }
 
-export default NewStudentContainer;
+const mapDispatch = (dispatch) => {
+  return {
+    addStudent: (student) => dispatch(addStudentThunk(student)),
+  };
+};
+
+export default connect(null, mapDispatch)(NewStudentContainer);
