@@ -1,7 +1,7 @@
 import React from "react";
 
-function CampusList() {
+function CampusListView() {
   return <div>View of all campuses</div>;
 }
 
-export default CampusList;
+export default CampusListView;
