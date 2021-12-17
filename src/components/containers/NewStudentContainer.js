@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
-import { addStudentThunk } from "../../state/thunks";
+import { Navigate } from "react-router-dom";
+import { connect } from "react-redux";
 
+import { addStudentThunk } from "../../store/thunks";
+import NewStudentView from "../views/NewStudentView";
+/*
 function NewStudentContainer(props) {
   const [state, setState] = useState({
     firstname: "",
@@ -42,12 +45,16 @@ function NewStudentContainer(props) {
     });
   };
 
-  if (redirectId) {
-    return <Redirect to={`/student/${redirectId}`} />;
+  if (state.redirect) {
+    return <Navigate replace to={`/student/${state.redirectId}`} />;
   }
   return (
     <NewStudentView handleChange={handleChange} handleSubmit={handleSubmit} />
   );
+}
+*/
+function NewStudentContainer(props) {
+  return <div>hi</div>;
 }
 
 const mapDispatch = (dispatch) => {
