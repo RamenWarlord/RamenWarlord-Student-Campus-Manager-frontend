@@ -7,6 +7,7 @@ import {
   CampusListContainer,
   CampusContainer,
   StudentsListContainer,
+  StudentContainer,
 } from "./components/containers";
 function App() {
   //const state = useSelector((state) => state);
@@ -19,6 +20,7 @@ function App() {
         <Route path="/campuses" element={<CampusListContainer />} />
         <Route path="/campus/:id" element={<CampusContainer />} />
         <Route path="/students" element={<StudentsListContainer />} />
+        <Route path="/student/:id" element={<StudentContainer />} />
       </Routes>
     </div>
   );
