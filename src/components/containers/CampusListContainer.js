@@ -1,10 +1,17 @@
 import PropTypes from "prop-types";
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import {} from "../../store/thunks";
+import { fetchAllCampusesThunk } from "../../store/thunks";
 import { CampusListView } from "../views";
 
-function CampusListContainer(props) {}
+function CampusListContainer(props) {
+  useEffect(() => {
+    console.log(props);
+    props.fetchAllCampuses();
+  }, []);
+
+  return <CampusListView allCampuses={props.allCampuses} />;
+}
 
 const mapState = (state) => {
   return {
