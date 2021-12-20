@@ -1,12 +1,13 @@
 import * as ac from "./actions/actionCreators";
 import axios from "axios";
 
+const link = "http://localhost:5000";
 // THUNKS
 
 //All campuses
 export const fetchAllCampusesThunk = () => async (dispatch) => {
   try {
-    let res = await axios.get(`http://localhost:5000/api/campuses`);
+    let res = await axios.get(`${link}/api/campuses`);
     dispatch(ac.fetchAllCampuses(res.data));
   } catch (err) {
     console.error(err);
@@ -23,7 +24,7 @@ export const fetchCampusThunk = (id) => async (dispatch) => {
   //   .then((campus) => dispatch(ac.fetchCampus(campus)))
   //   .catch((err) => console.log(err));
   try {
-    let res = await axios.get(`/api/campuses/${id}`);
+    let res = await axios.get(`${link}/api/campuses/${id}`);
     dispatch(ac.fetchCampus(res.data));
   } catch (err) {
     console.error(err);
@@ -33,7 +34,7 @@ export const fetchCampusThunk = (id) => async (dispatch) => {
 //All students
 export const fetchAllStudentsThunk = () => async (dispatch) => {
   try {
-    let res = await axios.get(`/api/students`);
+    let res = await axios.get(`${link}/api/students`);
     dispatch(ac.fetchAllStudents(res.data));
   } catch (err) {
     console.error(err);
@@ -43,7 +44,7 @@ export const fetchAllStudentsThunk = () => async (dispatch) => {
 export const addStudentThunk = (student) => async (dispatch) => {
   console.log(student);
   try {
-    let res = await axios.post(`http://localhost:5000/api/students`, student);
+    let res = await axios.post(`${link}/api/students`, student);
     dispatch(ac.addStudent(res.data));
     return res.data;
   } catch (err) {
@@ -53,7 +54,7 @@ export const addStudentThunk = (student) => async (dispatch) => {
 
 export const deleteStudentThunk = (studentId) => async (dispatch) => {
   try {
-    await axios.delete(`/api/students/${studentId}`);
+    await axios.delete(`${link}/api/students/${studentId}`);
     //delete succesful so change state with dispatch
     dispatch(ac.deleteStudent(studentId));
   } catch (err) {
@@ -64,7 +65,7 @@ export const deleteStudentThunk = (studentId) => async (dispatch) => {
 export const editStudentThunk = (student) => async (dispatch) => {
   try {
     let updatedStudent = await axios.put(
-      `/api/students/${student.id}`,
+      `${link}/api/students/${student.id}`,
       student
     );
     dispatch(ac.editStudent(updatedStudent));
@@ -76,7 +77,7 @@ export const editStudentThunk = (student) => async (dispatch) => {
 //Single student
 export const fetchStudentThunk = (id) => async (dispatch) => {
   try {
-    let res = await axios.get(`/api/students/${id}`);
+    let res = await axios.get(`${link}/api/students/${id}`);
     dispatch(ac.fetchStudent(res.data));
   } catch (err) {
     console.error(err);
