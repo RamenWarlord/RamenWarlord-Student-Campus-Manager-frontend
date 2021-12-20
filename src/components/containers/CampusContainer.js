@@ -1,15 +1,17 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchCampusThunk } from "../../store/thunks";
+import { useParams } from "react-router-dom";
 
 import { CampusView } from "../views";
 
 function CampusContainer(props) {
   //getting campus ID from url
+  const propParams = useParams();
   useEffect(() => {
-    props.fetchCampus(props.match.params.id);
+    props.fetchCampus(propParams.id);
   }, []);
-
+  console.log(props);
   return <CampusView campus={props.campus} />;
 }
 

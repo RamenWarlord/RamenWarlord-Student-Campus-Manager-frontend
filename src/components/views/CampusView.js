@@ -1,5 +1,6 @@
 const CampusView = (props) => {
-  const campus = props;
+  const campus = props.campus;
+  console.log(campus);
   return (
     <div>
       <h1>{campus.name}</h1>
