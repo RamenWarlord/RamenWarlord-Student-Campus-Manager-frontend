@@ -1,7 +1,7 @@
 import React from "react";
 
-function Campus() {
+function CampusView() {
   return <div>Single campus page</div>;
 }
 
-export default Campus;
+export default CampusView;
