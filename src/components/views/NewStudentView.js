@@ -13,12 +13,19 @@ const NewStudentView = (props) => {
         </label>
         <input type="text" name="lastname" onChange={(e) => handleChange(e)} />{" "}
         <br />
+        <label style={{ color: "#11153e", fontWeight: "bold" }}>Email: </label>
+        <input
+          type="text"
+          name="email"
+          onChange={(e) => handleChange(e)}
+        />{" "}
+        <br />
         <label style={{ color: "#11153e", fontWeight: "bold" }}>
           campusId:{" "}
         </label>
         <input type="text" name="campusId" onChange={(e) => handleChange(e)} />{" "}
         <br />
-        <button>Log In</button>
+        <button>Add Student</button>
       </form>
     </div>
   );
