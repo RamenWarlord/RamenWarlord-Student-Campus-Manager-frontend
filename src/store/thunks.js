@@ -6,7 +6,7 @@ import axios from "axios";
 //All campuses
 export const fetchAllCampusesThunk = () => async (dispatch) => {
   try {
-    let res = await axios.get(`/api/campuses`);
+    let res = await axios.get(`http://localhost:5000/api/campuses`);
     dispatch(ac.fetchAllCampuses(res.data));
   } catch (err) {
     console.error(err);
