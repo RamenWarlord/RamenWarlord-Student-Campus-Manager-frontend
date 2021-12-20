@@ -5,7 +5,10 @@ import { fetchCampusThunk } from "../../store/thunks";
 import { CampusView } from "../views";
 
 function CampusContainer(props) {
-  useEffect(() => {}, []);
+  //getting campus ID from url
+  useEffect(() => {
+    props.fetchCampus(props.match.params.id);
+  }, []);
 
   return <CampusView campus={props.campus} />;
 }
