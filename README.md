@@ -1,3 +1,9 @@
+# Frontend
+
+I used react hooks rather than class component and react router dom v6 instead of v5. Majority of the work was in updating the starter code and making sure it worked
+in those so the code right now is an mvp.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
